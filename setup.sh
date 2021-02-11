@@ -1,6 +1,6 @@
 #!/bin/bash
 
-minikube delete
+# minikube delete
 minikube start --vm-driver=virtualbox
 minikube addons enable metallb
 
