@@ -1,14 +1,24 @@
 #!/bin/bash
 
-# minikube delete
+# kubectl delete svc nginx-svc
+# kubectl delete deploy nginx-deployment
+# kubectl delete svc mysql-svc
+# kubectl delete deploy mysql-deployment
+minikube delete
 minikube start --vm-driver=virtualbox
-minikube addons enable metallb
-
 eval $(minikube docker-env)
-cd nginx
-docker build -t nginx_image .
-kubectl delete svc nginx-svc
-kubectl delete deploy nginx-deployment
-kubectl apply -f ../configmap.yaml
-kubectl apply -f ../nginx.yaml
+minikube addons enable metallb
+minikube addons enable dashboard
+# minikube addons enable metrics-server
+
+#docker build
+docker build -t "nginx_image" nginx
+docker build -t "mysql_image" mysql
+
+#kubectl apply
+kubectl apply -f configmap.yaml
+kubectl apply -f nginx.yaml
+kubectl apply -f mysql-deployment.yaml
+
+
 minikube dashboard
