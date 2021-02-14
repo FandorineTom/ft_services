@@ -1,3 +1,3 @@
 CREATE DATABASE wordpress;
-GRANT ALL PRIVILEGES ON wordpress.* TO 'snorthmo'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON wordpress.* TO 'snorthmo'@'%' IDENTIFIED BY 'snorthmo' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
