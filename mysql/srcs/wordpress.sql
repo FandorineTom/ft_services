@@ -65,7 +65,7 @@ CREATE TABLE `wp_comments` (
 
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
 (1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2020-10-13 15:37:23', '2020-10-13 15:37:23', 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.', 0, '1', '', 'comment', 0, 0),
-(2, 1, 'admin', 'admin@admin.ru', 'http://192.168.99.102:5050', '172.17.0.1', '2020-10-13 15:44:07', '2020-10-13 15:44:07', 'sooooo', 0, '1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15', 'comment', 0, 1);
+(2, 1, 'admin', 'admin@admin.ru', 'http://192.168.99.101:5050', '172.17.0.1', '2020-10-13 15:44:07', '2020-10-13 15:44:07', 'sooooo', 0, '1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15', 'comment', 0, 1);
 
 -- --------------------------------------------------------
 

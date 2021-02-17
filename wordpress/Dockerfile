@@ -5,25 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/13 15:59:59 by snorthmo          #+#    #+#              #
-#    Updated: 2021/02/17 12:23:02 by snorthmo         ###   ########.fr        #
+#    Created: 2021/02/16 23:48:09 by snorthmo          #+#    #+#              #
+#    Updated: 2021/02/17 01:31:35 by snorthmo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM alpine:3.12
+FROM	alpine:3.12
 
-EXPOSE 3306
+RUN		apk update
+RUN		apk upgrade
+RUN		apk add openrc php7 php7-fpm php7-json php7-mysqli nginx supervisor
 
-RUN apk update
-RUN apk add mysql mysql-client openrc
+RUN		mkdir -p /var/run/php
+RUN		mkdir -p /run/nginx
+RUN		wget https://wordpress.org/latest.tar.gz
+RUN		tar -xf latest.tar.gz
+RUN		mv wordpress 		/var/www
 
-COPY ./srcs/my.cnf /etc/
-# COPY ./srcs/wordpress.sql /etc/
-COPY ./srcs/init.sql /etc/
-COPY ./srcs/run.sh .
+COPY	php-fpm.conf		/etc/php7/php-fpm.conf
+# COPY	wp-config.php		/var/www/wordpress/wp-config.php
+COPY	default.conf		/etc/nginx/conf.d/default.conf
+COPY	supervisor.conf	/etc/supervisor.conf
+COPY	start.sh start.sh
+RUN		chmod u+x start.sh
 
-VOLUME sys/fs/cgroup
-VOLUME	["/var/lib/mysql"]
-RUN chmod u+x /run.sh
+EXPOSE	5050
 
-ENTRYPOINT [ "sh", "run.sh" ]
+ENTRYPOINT [ "./start.sh" ]
