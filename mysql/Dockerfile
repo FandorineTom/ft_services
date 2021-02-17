@@ -6,7 +6,7 @@
 #    By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 15:59:59 by snorthmo          #+#    #+#              #
-#    Updated: 2021/02/17 12:23:02 by snorthmo         ###   ########.fr        #
+#    Updated: 2021/02/17 14:13:38 by snorthmo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ RUN apk update
 RUN apk add mysql mysql-client openrc
 
 COPY ./srcs/my.cnf /etc/
-# COPY ./srcs/wordpress.sql /etc/
 COPY ./srcs/init.sql /etc/
 COPY ./srcs/run.sh .
 
