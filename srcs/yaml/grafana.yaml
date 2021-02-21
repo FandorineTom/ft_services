@@ -24,9 +24,12 @@ metadata:
   labels:
     app: grafana
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: grafana
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
