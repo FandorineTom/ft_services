@@ -16,8 +16,6 @@
 # kubectl delete deploy influxdb-deployment
 # kubectl delete svc grafana-svc
 # kubectl delete deploy grafana-deployment
-# kubectl delete persistentvolume/influxdb-pv-volume
-# kubectl delete persistentvolumeclaim/influxdb-pv-claim
 # minikube delete
 minikube start --driver=virtualbox
 eval $(minikube docker-env)
